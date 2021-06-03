@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+        {% block header %}
+            <div class="header_logo">
+                <a href="{{ path('page') }}">RR</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('page') }}">Главная</a></li>
+                    <li><a href="{{ path('add_video') }}">Добавить видео</a></li>
+                    <li><a href="{{ path('video') }}">Мои видео</a></li>
+                </ul>
+            </nav>
+            <button class="green"><a href="{{ path('app_login') }}">Войти</a></button>
+            <button class="green"><a href="{{ path('app_logout') }}">Выйти</a></button>
+        {% endblock %}
+        </header>
+        <div class="center_block_main">
+            <aside>
+            {% block sidebar %}
+                <ul>
+                    <li>
+                        <a href="{{ path('add_video') }}">Добавить видео</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('category') }}">Категории</a>
+                    </li>
+                </ul>
+            {% endblock %}
+            </aside>
+            <main>
+            {% block main %}{% endblock %}
+            </main>
+        </div>
+        <footer>FOOTER</footer>
+    </body>
+</html>
+

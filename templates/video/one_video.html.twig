@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideoController!{% endblock %}
+
+{% block main %}
+    <div class="grid">
+        <div class="grid_item">
+            <h1>{{ video.title }}</h1>
+            <iframe width="920" height="480" src="https://www.youtube.com/embed/{{ video.youtubeId }}" frameborder="0"></iframe>
+        </div>
+    </div>
+{% endblock %}
